@@ -1,0 +1,33 @@
+/* IE7 Styles - Because IE is a Pain in the Ass */
+
+
+#twitter { width: 249px; margin-top: -200px; padding: 0px 40px 0px 0px; }
+#twit_t { display: inline; float:right; }
+#twit_r { display: inline; float:right; }
+#twit_b { display: inline; float:right; margin-top: 0px; }
+
+.s_container { float: left; }
+
+#header ul li { display: block; float: left; }
+#header ul li a { display: block; }
+
+
+#content_top_page ul { margin-top: -25px; padding-top: 0px; }
+
+.portfolio_spot img { margin: 20px 0 20px 0; }
+
+.portfolio_spot h1 	{ line-height: 10px; }
+
+
+#rss { float: left; margin:  -23px 0 0 55px; }
+
+
+#search_container { display: inline-block; }
+.input { float: left; border: 0; margin: 0 0 0 -35px;  }
+
+#pagination { padding: 20px 0 0 0; margin: 0 0 0 35px;	}
+#next_arrow { margin-top: -20px;}
+
+.login_content, .register_content, .about_content, .exams_content  .contact_content {
+	filter:Alpha(opacity=0);
+}
