@@ -33,7 +33,7 @@
 	.icon_edit,.icon_delete{display: none;}
 </style>
 	
-<script type="text/javascript" src="../client_processes/jquery/jquery-1.9.1.js"> </script>
+<script type="text/javascript" src="../client_processes/jquery/jquery-1.9.1.min.js"> </script>
 <script type="text/javascript" src="../client_processes/scheduler/dhtmlxscheduler.js" charset="utf-8"></script>
 <script type="text/javascript" src="../client_processes/scheduler/dhtmlxscheduler_serialize.js"></script>
 

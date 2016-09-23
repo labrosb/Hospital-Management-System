@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Home</title>
 
-		<script type="text/javascript" src="client_processes/jquery/jquery-1.8.2.min.js"> </script>
+		<script type="text/javascript" src="client_processes/jquery/jquery-1.9.1.min.js"> </script>
 		<script type="text/javascript" src="client_processes/nivo-slider/jquery.nivo.slider.js"> </script>		
 		<script type="text/javascript" src="client_processes/general.js"> </script>	
 		<script type="text/javascript" src="client_processes/localization/localization.js"> </script>	
