@@ -48,7 +48,7 @@
 
 
 	function newExamToPatient($event, $code, $startDate, $staff_id, $patient_id, $ward_number, $unit_name, $building_name, $address){
-		 //Ανάκτηση e-mail χρήστη.
+		 //Retrieve user's e-mail
 		 $sql_patient = mysql_query("SELECT Email FROM patients WHERE Id='$patient_id' LIMIT 1") or die("cannot connect to patients");
 			while($row_patient = mysql_fetch_assoc($sql_patient)) {
 				$email = $row_patient['Email'];
@@ -64,7 +64,7 @@
 		$time = date('H:i', strtotime($startDate));
 		
 		$this_ward_num = $ward_number;
-		// $building_name απο όρισμα
+		// $building_name from argument
 		$building_address = $address;
 		
 		require_once('C:\xampp\php\PEAR\Mail.php');
@@ -85,7 +85,7 @@
 				$patient_name = $row['Name'];
 				$patient_surname = $row['Surname'];
 			}
-		//Ανάκτηση e-mail Ιατρού.	
+		//Retrieve doctor's e-mail	
 		$sql_doctor = mysql_query("SELECT Email FROM medical_staff WHERE Id='$staff_id' LIMIT 1") or die("cannot connect to medical_staff");
 			while($row = mysql_fetch_assoc($sql_doctor)) {
 				$email = $row['Email'];
@@ -176,7 +176,7 @@
   }  
   
 	function deletedEventEmail($staff_id, $start, $end, $thisEvent, $patient, $parent ){
-		//Ανάκτηση e-mail Ιατρού.	
+		//Retrieve doctor's e-mail	
 		$sql_doctor = mysql_query("SELECT Email FROM medical_staff WHERE Id='$staff_id' LIMIT 1") or die("cannot connect to medical_staff");
 		while($row = mysql_fetch_assoc($sql_doctor)) {
 			$email = $row['Email'];

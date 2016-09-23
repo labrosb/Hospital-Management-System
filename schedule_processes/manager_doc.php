@@ -63,7 +63,7 @@
 	}
 </style>
 	
-<script type="text/javascript" src="../client_processes/jquery/jquery-1.9.1.js"> </script>	
+<script type="text/javascript" src="../client_processes/jquery/jquery-1.9.1.min.js"> </script>	
 <script type="text/javascript" src="../client_processes/scheduler/dhtmlxscheduler.js" charset="utf-8"></script>
 <script type="text/javascript" src="../client_processes/scheduler/dhtmlxscheduler_serialize.js"></script>
 <script type="text/javascript" src="../client_processes/jquery/jquery.msgBox.js"></script>
@@ -516,7 +516,7 @@
 									return false;
 								}
 								else 
-								{ //άδεια ή ρεπό 
+								{ //leave or day-off
 									action_execute("delete&insert", response.events, null, dayOffArray);
 								}
 							}
@@ -808,7 +808,7 @@
 				{
 					$('#patient_field, #patient_label').show();
 				}	
-				if (choicelist['parent'][element].ward_details === true)   //ΑΛΛΑΓΗ
+				if (choicelist['parent'][element].ward_details === true)   //Change
 				{
 					$('#ward_field, #ward_label').show();
 				}		
@@ -859,7 +859,7 @@
 		struct_lists("child2");
 	});
 	
-	$('#ward').attr('disabled', true); //ΑΛΛΑΓΗ
+	$('#ward').attr('disabled', true); //Change
 	
 	$('#okButton').click(function(){ 
 		$('#external_field_msgs').hide();	

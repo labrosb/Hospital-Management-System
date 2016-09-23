@@ -26,10 +26,10 @@
 		var height = $('#exams_dimensions').height();
 		var width = $('#exams_dimensions').width();
 
-		$('#exams_popup').animate({		//Φέρνει το exams_popup στο σωστο width	
+		$('#exams_popup').animate({		//brings exams_popup to the right width	
 								width: width + 5
 							}, 400, function(){ 
-										$('#exams_popup').animate({ 		//Φέρνει το exams_popup στο σωστο height
+										$('#exams_popup').animate({ 		//brings exams_popup to the right height
 																height: height
 															}, 400, function(){ 
 																		$('#exams_popup').html(exams);

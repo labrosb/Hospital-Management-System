@@ -1,5 +1,5 @@
 ﻿$(document).ready(function(){	
-//ελεγχος sessions
+//Sessions check
 var loading = true;
 
 	var rights = $.ajax({
@@ -11,7 +11,8 @@ var loading = true;
 								return response;
 							}
 				}).responseText;
-//δημιουργία αντιστοιχου content
+				
+//corresponding context implementation
 
 	if (rights == 'false'){
 		var page = 'index';
@@ -37,10 +38,10 @@ var loading = true;
 
 								retain_height = $('.'+page+'_content').height();
 								//$('.content').height(retain_height);
-								$('.content').animate({		//Φέρνει το content στο σωστο height	
+								$('.content').animate({		//brings content to the right height	
 												height: retain_height 
 											}, 800, function(){ 
-														$('.'+page+'_content').animate({ //εμφάνιση περιεχομενου
+														$('.'+page+'_content').animate({ //Content visualization
 																				 opacity: 1,
 																				 height: 'toggle'
 																			 }, 800, function(){
@@ -56,7 +57,7 @@ var loading = true;
 							
 						
 
-///////ΕΝΑΛΛΑΓΗ ΣΕΛΙΔΩΝ///////	
+///////PAGES SWITCH///////	
 	var proccess = false;
 	$('ul#'+nav+' li a').click(function(e) {
 		if (proccess == false && loading == false && $(this).attr('href') != '#') {
@@ -72,7 +73,7 @@ var loading = true;
 											return response;
 										}
 							}).responseText;
-		//αν ληξει το session					
+		//If session expires					
 				if ($('ul').attr('id') == 'nav_patient' && rights != 'asth' ||
 					$('ul').attr('id') == 'nav_manager' && rights != 'manager' ||
 					$('ul').attr('id') == 'nav_staff' && rights != 'staff'){		
@@ -80,7 +81,7 @@ var loading = true;
 				return false;
 				}	
 						
-		//εναλλαγη σελιδων
+		//pages switch
 					retain_height = $('.'+prev_page+'_content').height();
 					$('.content').height(retain_height);
 					$('.'+prev_page+'_content').animate({

@@ -44,22 +44,22 @@
 		$num_rows_2 = mysql_num_rows($sql_2);	
 		
 		
-		if ( $num_rows > 0 || $num_rows_2 > 0) {     //Αν εχει αλλο συμβαν
+		if ( $num_rows > 0 || $num_rows_2 > 0) {     //If it overlays to other event
 			$availability = false;
 			switch($event) {
-				case 1: // ¶δεια
+				case 1: // Leave
 					$result['do'] = "ASK";
 					$result['events'] = get_events_id_only($startDate, $endDate, $this_doctor);
 					break;
-				case 2: // ¶δεια (αναρρωτική)
+				case 2: // Sick leave
 					$result['do'] = "FORCE";
 					$result['events'] = get_events_id_only($startDate, $endDate, $this_doctor);
 					break;
-				case 3: // Ρεπό
+				case 3: // day-off
 					$result['do'] = "ASK";
 					$result['events'] = get_events_id_only($startDate, $endDate, $this_doctor);
 					break;
-				case 4: // Εξετάσεις
+				case 4: // Exams
 					$events = get_reasons($startDate, $endDate, $this_doctor);
 		//print_r($events);
 					$result['do'] = "NOT";
@@ -70,10 +70,10 @@
 						}
 					}						
 					break;
-				case 5: // Εφημερία
+				case 5: // call-duty
 					$result['do'] = "NOT";	
 					break;
-				case 6: // Βάρδια
+				case 6: // work-shift
 					$events = get_reasons($startDate, $endDate, $this_doctor);
 		//print_r($events);
 
@@ -87,7 +87,7 @@
 					break;					
 			}
 		}
-		else{ //Αν ειναι ελευθερος
+		else{ //if not occupied
 			 $result['do'] = "NTN";
 			 $result['eventsNum'] = 0;
 		}

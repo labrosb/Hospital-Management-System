@@ -19,18 +19,18 @@
 	
 	$plus_worktime = ' +30 minutes';
 	$first_worktime = '00:30:00';
-//Μετατρέπει την insurance σε boolean	
+//Converts insurance to boolean	
 	if 	($insurance == 'true'){
 		$insurance = true;
 	}else{
 		$insurance = false;
 	}
 	
-//Υλοποίηση ημερομηνίας DateTime	
+// DateTime	implementation
 	$dateArray = explode( "/" , $date);
 	$fixed_date = $dateArray[2]."-".$dateArray[1]."-".$dateArray[0];
 	$date_time = $fixed_date." ".$time.":00";
-//Υλοποίηση ημερομηνίας λήξης εξετάσεων	
+// Expiring exams date implementation
 	$end_date = date("Y-m-d H:i:s", strtotime($date_time.''. $plus_worktime));
 
 
@@ -47,14 +47,14 @@
 	mysql_query('SET character_set_results=utf8');   
 	mysql_query('SET collation_connection=utf8_general_ci'); 
 	
-	//Τύπος έξετάσεων - Ειδικότητα
+	//Exams type - Speciality
 	$sql = mysql_query("SELECT Id, Staff_category_id, Price FROM examination_types WHERE Name='$exams_type' LIMIT 1") or die("cannot connect to examination_types");
 		while($row = mysql_fetch_assoc($sql)) {
 			$examination_type_id[] = $row['Id'];
 			$staff_category_id = $row['Staff_category_id'];
 			$price = $row['Price'];
 		}	
-		//Ελεγχος υπαρξης τύπου εξετάσεων			
+		//Exams existence check		
 		if ( !isset($examination_type_id) ){
 			echo "EXAM TYPE ERROR";
 			exit;
@@ -62,7 +62,7 @@
 		$this_examination = $examination_type_id[0];
 		
 	if 	($this_doctor > 0){	
-		//Ελεγχος αντιστοιχίας ιατρού.		
+		//Check if doctor corresponds		
 		$sql = mysql_query("SELECT Id, Name, Surname FROM medical_staff WHERE Id='$this_doctor' LIMIT 1") or die("cannot connect to medical_staff");
 			while($row = mysql_fetch_assoc($sql)) {
 				$doctor_id[] = $row;
@@ -84,7 +84,7 @@
 			exit;
 		}	
 	}else{
-		//Ελεγχος διαθεσιμοτητας ιατρων		
+		//Check doctors availability	
 		$sql = mysql_query("SELECT Id, Name, Surname FROM medical_staff WHERE((Specialty_id='$staff_category_id') AND (Id NOT IN
 							(SELECT Staff_id FROM unavailable_staff WHERE((Specialty_id='$staff_category_id') AND
 							(('$date_time' BETWEEN Start AND End) OR ('$end_date' BETWEEN Start AND End) OR

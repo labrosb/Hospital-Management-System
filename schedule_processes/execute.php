@@ -194,17 +194,17 @@
 		}else{
 			$thisParent = 0;
 		}	
-		if($event == 1 || $event == 2){ //άδεια
+		if($event == 1 || $event == 2){ //Leave
 			mysql_query("INSERT INTO vacation VALUES('$Id','$event','$staff_id','$startDate','$endDate','$comments' )") or die("ERROR1-2");	
 			//e-mails disabled on this distribution for spam and privacy reasons
 			//newstartVacationEmail($event, $startDate, $endDate, $staff_id);
 		}
-		else if($event == 3){ //ρεπό
+		else if($event == 3){ //day-off
 			mysql_query("INSERT INTO days_off VALUES('$Id','$staff_id','$startDate','$endDate','$comments','$thisParent' )") or die("ERROR3");
 			//e-mails disabled on this distribution for spam and privacy reasons
 			//new_dayOff_curacy_workShift_email($event, $startDate, $endDate, $staff_id);
 		}
-		else if($event == 4){ //εξετάσεις
+		else if($event == 4){ //exams
 			$ward_details = find_available_ward($staff_category_id, $startDate, $endDate, $event, $Id);
 			$ward_id = $ward_details['ward_id'];
 			$ward_number = $ward_details['ward_number'];
@@ -216,12 +216,12 @@
 			newExamToPatient($event, $Id, $startDate, $staff_id, $patient_id, $ward_number, $unit_name, $building_name, $address);
 			newExamToDoc($event, $Id, $startDate, $staff_id, $patient_id, $ward_number, $unit_name, $building_name, $address);
 		}		
-		else if($event == 5){ //εφημερία
+		else if($event == 5){ //call-duty
 			mysql_query("INSERT INTO on_duty VALUES('$Id','$staff_id','$startDate','$endDate','$subReason')") or die("ERROR5");
 			//e-mails disabled on this distribution for spam and privacy reasons
 			//new_dayOff_curacy_workShift_email($event, $startDate, $endDate, $staff_id);
 		}
-		else if($event == 6){ //βάρδια
+		else if($event == 6){ //work-shift
 			mysql_query("INSERT INTO  work_shifts VALUES('$Id','$staff_id','$startDate','$endDate','$subReason')") or die("ERROR6");
 			//e-mails disabled on this distribution for spam and privacy reasons
 			//new_dayOff_curacy_workShift_email($event, $startDate, $endDate, $staff_id);

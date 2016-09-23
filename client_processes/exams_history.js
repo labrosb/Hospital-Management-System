@@ -126,10 +126,10 @@ function struck_tables(response, items, moreBool){
 			
 		var extra_height = $('#height_specify').height();	
 
-		$('.content').animate({		//Φέρνει το content στο σωστο height	
+		$('.content').animate({		//brings content to the right height	
 						height: 240 + extra_height
 					}, 400);		
-		$('#results').animate({		//Φέρνει το results στο σωστο height	
+		$('#results').animate({		//brings results to the right height	
 						height: extra_height
 					}, 400, function(){ 
 								if (moreBool === true){
@@ -181,7 +181,7 @@ function ajax_call(limit1, more, exams_list, fromDate, toDate){
 	return limit1;
 }		
 	
-////////////Τέλος συναρτήσεων/////////////
+////////////Functions end/////////////
 
 
 $(document).ready(function() {

@@ -25,7 +25,7 @@
 	mysql_query('SET character_set_results=utf8');   
 	mysql_query('SET collation_connection=utf8_general_ci'); 
 	
-	//Τύπος έξετάσεων - Ειδικότητα
+	//Exams type - Speciality
 	$sql = mysql_query("SELECT Exam_id, Staff_id, Exam_type_id, Start_time, Results FROM examinations WHERE Patient_id='$id' AND Comfirmed='1' AND Viewed='0' ORDER BY Start_time DESC LIMIT 3") or die("cannot connect to examinations");
 		$cnt=0;		
 		while($row = mysql_fetch_assoc($sql)) {

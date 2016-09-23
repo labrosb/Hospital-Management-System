@@ -39,7 +39,7 @@
 				break;
 			}
 		}
-		if($types[$cnt]['parent'] == 4) { //Εξετάσεις
+		if($types[$cnt]['parent'] == 4) { //Exams
 			$sql_2 = mysql_query("SELECT Exam_type_id, Patient_id, Ward_id FROM examinations WHERE Exam_id = $exam_id LIMIT 1") or die("cannot connect to examinations");
 			while($row = mysql_fetch_assoc($sql_2)) {
 				$types[$cnt]['exam_type_id'] = $row['Exam_type_id'];

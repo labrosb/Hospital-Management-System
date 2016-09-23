@@ -38,7 +38,7 @@ $(function() {
 			var height = $('#intro').height();			
 			var extra_height = $('#height_specify').height();	
 
-			$('.content').animate({		//Φέρνει το content στο σωστο height	
+			$('.content').animate({		//bring content to the right height	
 							height: height + extra_height
 						}, 400, function(){ 
 								$('#results').append(exams);

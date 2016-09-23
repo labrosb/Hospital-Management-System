@@ -1,6 +1,6 @@
 <?php session_start();
  
- //Ανάκτηση e-mail χρήστη.
+ //Retrieve user's e-mail.
  $sql_patient = mysql_query("SELECT Email FROM patients WHERE Id='$patient_id' LIMIT 1") or die("cannot connect to patients");
 	while($row_patient = mysql_fetch_assoc($sql_patient)) {
 		$email = $row_patient['Email'];

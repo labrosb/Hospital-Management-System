@@ -39,7 +39,7 @@
 				break;
 			}
 		}
-		if($types[$cnt]['parent'] == 4) { //Εξετάσεις
+		if($types[$cnt]['parent'] == 4) { //Exams
 			$sql_2 = mysql_query("SELECT Exam_type_id, Patient_id, Ward_id FROM examinations WHERE Exam_id = $exam_id LIMIT 1") or die("cannot connect to examinations");
 			while($row = mysql_fetch_assoc($sql_2)) {
 				$types[$cnt]['exam_type_id'] = $row['Exam_type_id'];
@@ -82,7 +82,7 @@
 
 		}
 		
-		else if($types[$cnt]['parent'] == 5) { //Εφημερία
+		else if($types[$cnt]['parent'] == 5) { //call-duty
 		
 			$type_id = $types[$cnt]['id'];
 			$sql_2 = mysql_query("SELECT Unit_id FROM on_duty WHERE Id = $type_id LIMIT 1") or die("cannot connect to on_duty");
@@ -108,7 +108,7 @@
 		$cnt++;
 	}
 
-//---Βάρδια---// 
+//---work-shift---// 
 
 	$sql = mysql_query("SELECT Id, Start_date, End_date, Unit_id FROM work_shifts WHERE Staff_id = $id ") or die("cannot connect to unavailable_staff");
 	while($row = mysql_fetch_assoc($sql)) {

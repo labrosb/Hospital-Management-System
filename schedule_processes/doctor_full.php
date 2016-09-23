@@ -34,7 +34,7 @@
 
 	</style>
 	
-<script type="text/javascript" src="../client_processes/jquery/jquery-1.9.1.js"> </script>
+<script type="text/javascript" src="../client_processes/jquery/jquery-1.9.1.min.js"> </script>
 <script type="text/javascript" src="../client_processes/scheduler/dhtmlxscheduler.js" charset="utf-8"></script>
 <script type="text/javascript" src="../client_processes/scheduler/dhtmlxscheduler_serialize.js"></script>
 
@@ -164,7 +164,7 @@
 		if (ev.parent == 4){
 			html("child").value = ev.exam_type_id;
 			html("patient").value = ev.patient_name+ " "+ev.patient_surname+ " (" +ev.patient_id+")";
-			html("ward").value = " " + ev.number+ " / " + ev.unit_name + " / " + ev.building_name ; //ΑΛΛΑΓΗ		
+			html("ward").value = " " + ev.number+ " / " + ev.unit_name + " / " + ev.building_name ; //CHANGE		
 		}
 		
 		else if (ev.parent == 5){

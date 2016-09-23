@@ -42,7 +42,7 @@
 				break;
 			}
 		}
-		if($types[$cnt]['parent'] == 5) { //Εφημερία
+		if($types[$cnt]['parent'] == 5) { //Call-duty
 		
 			$sql_staff = mysql_query("SELECT Name, Surname FROM medical_staff WHERE Id = $staff_id") or die("cannot connect to unavailable_staff");
 				while($row = mysql_fetch_assoc($sql_staff)) {
@@ -73,7 +73,7 @@
 		$cnt++;
 	}
 
-//---Βάρδια---// 
+//---Work shift---// 
 
 	$sql = mysql_query("SELECT Id, Staff_id, Start_date, End_date FROM work_shifts WHERE unit_id = $unit_id") or die("cannot connect to unavailable_staff");
 	while($row = mysql_fetch_assoc($sql)) {

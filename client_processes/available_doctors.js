@@ -34,7 +34,7 @@
 						counter++;
 					}
 					doctors = doctors+"</table>";	
-				}	//Περιλαμβανεται και το πεδιο για το βιογραφικο
+				}	//includes the info for the resume
 				doctors = doctors+"</div><div id='biography_content'><div<td></tr></table><div>";	
 			}
 			
@@ -43,10 +43,10 @@
 			var width = $('#doctors_dimensions').width();
 			var results_field_width = $('#doctors_dimensions table #all_lists').width();
 			$('#doctors_dimensions table #all_lists').width(results_field_width);
-			$('#doctors_popup').animate({		//Φέρνει το doctors_popup στο σωστο width	
+			$('#doctors_popup').animate({		//brings doctors_popup to the right width	
 									width: width + 5
 								}, 400, function(){ 
-											$('#doctors_popup').animate({ 		//Φέρνει το doctors_popup στο σωστο height
+											$('#doctors_popup').animate({ 		//brings doctors_popup to the right height
 																	height: height
 																}, 400, function(){ 
 																				$('#doctors_popup').html(doctors);
@@ -56,7 +56,7 @@
 										});	
 										
 									
-		
+		//doctor info popup
 			function popup_events(){
 				$('.av_doctors_list td').click(function(){ 
 					var name = $(this).text();
@@ -90,13 +90,13 @@
 						}
 					}
 	
-
+					//available doctors popup html
 					$('#doctors_dimensions table tr #profile').html("<div id='profile_content'> <p>Profile</p> <table> <tr> <td id='profile_photo_content' ROWSPAN = '7'> <div id='photo_loading'><img id='loading_prof_img' src='styles/images/loading2.gif' height='auto' width='auto' /></div> </td> </tr> <tr> <td class ='prof_details'>Name: "+name+"</td>	</tr> <tr> <td class ='prof_details'>Surname: "+surname+"</td> <tr> <td class ='prof_details'>Sex: "+sex+"</td> </tr> <tr> <td class ='prof_details'>Age: "+age+"</td> </tr> <tr> <td class ='prof_details'>Speciality: "+specialty+"</td>	</tr> <tr>	<td <td class ='prof_details'><span class='biography_button'>More info</span></td>	</tr> </table> </div>");
 					$('#photo_loading').show();
 					var profile_width = $('#doctors_dimensions table tr #profile').width();	
 					var new_width = $('#doctors_dimensions').width();
 					var new_height = $('#doctors_dimensions').height();
-					$('#doctors_popup').animate({		//Φέρνει το doctors_popup στο σωστο width	
+					$('#doctors_popup').animate({		//brings doctors_popup to the right width	
 											width: new_width,
 											marginLeft: profile_width - 2 * profile_width,
 											height: new_height,
@@ -117,7 +117,7 @@
 														$('#results_content table tr #lists').width(lists_td_width);													
 														$('#results_content table tr td #all_lists').fadeOut();	
 														$('#results_content table tr td #biography_content').html("<img id='back_to_list' src='styles/images/grey_arrow_left.png' height='35' width='45' /><p>More info</p>"+biography);																									
-														$('#doctors_popup').animate({		//Φέρνει το doctors_popup στο σωστο width	
+														$('#doctors_popup').animate({		//brings doctors_popup to the right width	
 																				height: 300,
 																				paddingRight: 250
 																			}, 400, function(){ 
@@ -135,7 +135,7 @@
 															e.stopPropagation();
 															var original_height = $('#doctors_dimensions').height();
 															$('#results_content table tr td #biography_content').slideUp();														
-															$('#doctors_popup').animate({		//Φέρνει το doctors_popup στο σωστο width	
+															$('#doctors_popup').animate({		//brings doctors_popup to the right width	
 																					height: original_height,
 																					paddingRight: 0
 																				}, 400, function(){ 
@@ -154,7 +154,7 @@
 				
 			}
 		}
-		
+		//popup contents
 		$(function() {
 			$('.available_doctors_choice').bind('click', function(e) {
 				if(!document.getElementById('doctors_popup')){
