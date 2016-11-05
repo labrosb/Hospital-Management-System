@@ -1,7 +1,17 @@
+<?php
+	if(!isset($_SESSION)){ session_start();}
+	
+	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/security_functions.php");	// Security functions	
+		
+	check_if_manager();					// Checking session to prevent unauthorized access
+	
+	if (!check_session_timer()){exit;}	 // Checking session (if exists) to see if is expired	
+?>
+
     <script type="text/javascript" src="client_processes/jquery/jquery-ui-1.9.1.custom.min.js"></script>
-	<script type="text/javascript" src="client_processes/doctors_registration.js"></script>
+	<script type="text/javascript" src="client_processes/manager_functions/doctors_registration.js"></script>
     <div id="intro">
-      <h1>New Medical Staff</h1>
+      <h1 data-inter="newMedicalStaffTitle">New Medical Staff</h1>
       <div class="content_page">
 		  <form id="myform" action="#" method="post">
 			  <!-- #first_step -->
@@ -51,8 +61,8 @@
 							<label for="phone" class="err_msg"> </label>
 							<input type="text" name="cellPhone" id="cellPhone" value="Mobile phone" />
 							<label for="cellPhone" class="err_msg"> </label>
-							<input type="text" name="workPhone" id="workPhone" value="Work phone" />
-							<label for="workPhone" class="err_msg"> </label>							
+							<input type="text" name="workPhoneStaff" id="workPhoneStaff" value="Work phone" />
+							<label for="workPhoneStaff" class="err_msg"> </label>							
 							<input type="text" name="email" id="email" value="E-mail" />
 							<label for="email" class="err_msg"> </label>  
 						</div>

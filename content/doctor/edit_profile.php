@@ -4,19 +4,19 @@
 	// In case that someone tries to retrieve information 
 	// from this particular file through the URL path
 
-	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/config.inc.php");		// Connection to database	
+	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/config.inc.php");	// Connection to database		
 	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/security_functions.php");	// Security functions	
 		
-	check_if_patient();		// Checking session to prevent unauthorized access
+	check_if_doctor();		// Checking session to prevent unauthorized access
 	
-	if (!check_and_update_session()){									// If session hasn't expired update session 									
-		header("Location: http://". $_SERVER['HTTP_HOST']."/hospital"); // else redirects to the homepag
+	if (!check_and_update_session()){										// If session hasn't expired update session 									
+		header("Location: http://". $_SERVER['HTTP_HOST']."/hospital");		// else redirect to home page
 		exit;
-	}						
+	}				
 ?>
 
 	<script type="text/javascript" src="client_processes/jquery/jquery-ui-1.9.1.custom.min.js"> </script>	
-	<script type="text/javascript" src="client_processes/patient_functions/edit_profile.js"></script>
+	<script type="text/javascript" src="client_processes/doctor_functions/edit_staff_profile.js"></script>
     <div id="intro">
       <h1 data-inter="editProfileTitle">Profile edit</h1>
       <div class="content_page">
@@ -41,28 +41,31 @@
 							<div data-inter="cellPhone" class='titles'>Mobile phone</div>
 							<input type="text" name="cellPhone" id="cellPhone" value="" />
 							<label for="cellPhone" class="err_msg"> </label> 
+							<div data-inter="Email" class='titles'>E-mail</div>
+							<input type="text" name="email" id="email" value="" />
+							<label for="email" class="err_msg"> </label> </br>							
 						</div><!-- clearfix -->
-						<input class="submit_change" type="button" name="submit_edit_first" id="submit_edit_first" value="Submit" />
+						<input class="submit_change_doc" type="button" name="submit_edit_first" id="submit_edit_first" value="Submit" />
 					</div>
 				</div>
 				<div id="form_right">
 					<div id='form_msg1'>
 						<table class ='choice_buttons'>
 							<tr>
-								<td data-inter='contactInfo' id ='communication_upd'> Contact info </td>
+								<td data-inter="contactInfo" id ='communication_upd'> Contact info </td>
 								<td id='space'></td>
-								<td data-inter='Email' id ='email_upd'> E-mail </td>
+								<td data-inter="moreInfo" id ='biog_upd'> More info </td>
 								<td id='space'></td>
-								<td data-inter='password' id='password_upd'> Password </td>
+								<td data-inter="password" id='password_upd'> Password </td>
 							</tr>
 						</table>
 						</br></br></br></br></br></br>
-						<h1 data-inter='contactInfoEdit' class='msg_p succ'>Contact information edit</h1>
+						<h1 data-inter="contactInfoEdit" class='msg_p succ'>Contact information edit</h1>
 						<div id="step1_error">
-							<h1 data-inter='ERROR' class='error_p' style='display:none'>ERROR</h1>
-							<p data-inter='regFailed2' class='error_p' style='display:none'>An error came up. Please try again!</p>
+							<h1 data-inter="ERROR" class='error_p' style='display:none'>ERROR</h1>
+							<p data-inter="regFailed2" class='error_p' style='display:none'>An error came up. Please try again!</p>
 						</div>
-						<div id='form_loading_p'>
+						<div id='form_loading_p_doc'>
 							<img id='loading_img_p' src='styles/images/loading_icon.gif' height="120" width="120" />
 						</div>
 					</div>
@@ -72,39 +75,34 @@
 			<div id="second_step">
 				<div id="form_left">
 					<div id="myform_container">
-					</br></br>
 						<div class="myform">
-							<div data-inter="Email" class='titles'> E-mail</div>
-							<input type="text" name="email" id="email" value="" />
-							<label for="email" class="err_msg"> </label> </br>
-							<div data-inter="password" class='titles'> Password</div>
-							<input type="password" name="password" id="password" value="" />			
-							<label for="password" class="err_msg"> </label>				
+							<div data-inter="moreInfo" class='titles'> More info </div>
+							<textarea name="biog" id="biog"> </textarea>
+							<label for="biog" class="err_msg"> </label> </br>		
 						</div>
-						<input class="submit_change2" type="button" name="submit_edit_second" id="submit_edit_second" value="Submit" />											
+						<input class="submit_change_doc2" type="button" name="submit_edit_second" id="submit_edit_second" value="Submit" />											
 					</div>    
 				</div>
 				<div id="form_right">
-					<div id='form_msg2' class ='sec'>
+					<div id='form_msg2'>
 						<table class ='choice_buttons dn'>
 							<tr>
-								<td data-inter='contactInfo' id ='communication_upd'> Contact info </td>
+								<td data-inter="contactInfo" id ='communication_upd'> Contact info </td>
 								<td id='space'></td>
-								<td data-inter='Email' id ='email_upd'> E-mail </td>
+								<td data-inter="moreInfo" id ='biog_upd'> More info </td>
 								<td id='space'></td>
-								<td data-inter='password' id='password_upd'> Password </td>
+								<td data-inter="password" id='password_upd'> Password </td>
 							</tr>
 						</table>
-							</br></br></br></br></br></br>
-							<h1 data-inter='EmailEdit' class='msg_p succ2'>Ε-mail edit</h1>
-							<p data-inter='passForMail' class='msg_p succ2'>Your password is required to edit your e-mail.</p>
-							<div id="step2_error">
-								<h1 data-inter='error' class='error_p' style='display:none'>Error</h1>
-								<p data-inter='regFailed2' class='error_p' style='display:none'>An error came up. Please try again!</p>
-							</div>
-							<div id='form_loading_p2'>
-								<img id='loading_img_p2' src='styles/images/loading_icon.gif' height="120" width="120" />
-							</div>
+						</br></br></br></br></br></br>
+						<h1 data-inter="infoEdit" class='msg_p succ2'>Personal info</h1>
+						<div id="step2_error_staff">
+							<h1 data-inter="ERROR" class='error_p' style='display:none'>ERROR</h1>
+							<p data-inter="regFailed2" class='error_p' style='display:none'>An error came up. Please try again!</p>
+						</div>
+						<div id='form_loading_p2_doc'>
+							<img id='loading_img_p2' src='styles/images/loading_icon.gif' height="120" width="120" />
+						</div>
 					</div>
 				</div>
 			</div>	
@@ -112,8 +110,8 @@
 			<div id="third_step">
 				<div id="form_left">
 					<div id="myform_container">
-					</br>
 						<div class="myform">
+						</br>
 							<div data-inter="oldPass" class='titles'> Old Password</div>
 							<input type="password" name="oldPassword" id="oldPassword" value="" />
 							<label for="oldPassword" class="err_msg"> </label>	</br>	
@@ -125,28 +123,28 @@
 							<label for="passwordConf" class="err_msg"> </label>	</br>							
 							<!-- clearfix --><div class="clear"></div><!-- /clearfix -->				
 						</div>
-						<input class="submit_change3" type="button" name="submit_edit_third" id="submit_edit_third" value="Submit" />						
+						<input class="submit_change_doc3" type="button" name="submit_edit_third" id="submit_edit_third" value="Submit" />						
 					</div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
 				</div>
 				<div id="form_right">
 					<div id='form_msg3'>
 						<table class ='choice_buttons dn'>
 							<tr>
-								<td data-inter='contactInfo' id ='communication_upd'> Contact info </td>
+								<td data-inter="contactInfo" id ='communication_upd'> Contact info </td>
 								<td id='space'></td>
-								<td data-inter='Email' id ='email_upd'> E-mail </td>
+								<td data-inter="moreInfo" id ='biog_upd'> More info </td>
 								<td id='space'></td>
-								<td data-inter='password' id='password_upd'> Password </td>
+								<td data-inter="Password" id='password_upd'> Password </td>
 							</tr>
 						</table>
 						</br></br></br></br></br></br>
-						<h1 data-inter='passEdit' class='msg_p succ3'>Password edit</h1>
-						<p data-inter='passEditMsg' class='msg_p succ3'>Your previous password is required.</p>
+						<h1 data-inter="passEdit" class='msg_p succ3'>Password edit</h1>
+						<p data-inter="passEditMsg" class='msg_p succ3'>Your previous password is required.</p>
 						<div id="step3_error">
-							<h1 data-inter='ERROR' class='error_p' style='display:none'>ERROR</h1>
-							<p data-inter='regFailed2' class='error_p' style='display:none'>An error came up. Please try again!</p>	
+							<h1 data-inter="ERROR" class='error_p' style='display:none'>ERROR</h1>
+							<p data-inter="regFailed2" class='error_p' style='display:none'>An error came up. Please try again!</p>	
 						</div>
-						<div id='form_loading_p3'>
+						<div id='form_loading_p3_doc'>
 							<img id='loading_img_p3' src='styles/images/loading_icon.gif' height="120" width="120" />
 						</div>						
 					</div>
@@ -156,6 +154,6 @@
 		</form>
    </div>
  </div>
- <script type="text/javascript">
-	changeLang(defaultLang);	
-</script>
+<script>
+	changeLang(defaultLang);
+</script>	

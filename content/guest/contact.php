@@ -1,38 +1,3 @@
-<?php
-	if(!isset($_SESSION)){ session_start();} 
-
-	// In case that someone tries to retrieve information 
-	// from this particular file through the URL path
-
-	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/config.inc.php");		// Connection to database		
-	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/security_functions.php");// Security functions	
-		
-	check_if_patient();					// Checking session to prevent unauthorized access
-	
-	if (!check_and_update_session()){									// If session hasn't expired update session 									
-		header("Location: http://". $_SERVER['HTTP_HOST']."/hospital"); // else redirects to the homepage
-		exit;
-	}	
-		
-	$con = DB_Connect();				// Connecting to database
-		
-	$ID = $_SESSION['id'];
-	$Name = $_SESSION['name'];
-	$Surname = $_SESSION['surname'];
-
-	try {	
-		$stmt = $con->prepare('SELECT Email FROM patients WHERE Id = :id LIMIT 1');		
-		$stmt->execute(array('id' => $ID));		
-		
-		while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-		{	
-			$data['Email'] = $row['Email']; 		// Retrieves user's e-mail
-		}
-		$con=null;
-	}
-	catch (PDOException $e) { die("cannot connect to reasons"); }
-?>	
-	
     <script type="text/javascript" src="client_processes/jquery/jquery-ui-1.9.1.custom.min.js"></script>	
 	<script type="text/javascript" src="client_processes/general_functions/send_mail.js"></script>	
 		<div id="intro">					
@@ -67,12 +32,8 @@
 					</div>                           
                 </div><!--right ends-->          
             </div><!--content end-->										
-		</div><!--introduction end-->	
+		</div><!--introduction end-->		
+		<script>
+			changeLang(defaultLang);
+		</script>	
 				
-	<script type="text/javascript">
-		changeLang(defaultLang);
-		$('#name').val('<?php echo $Name.' '.$Surname ?>');
-		$('#email').val('<?php echo $data["Email"] ?>');
-		$('#name').attr('disabled', true);
-		$('#email').attr('disabled', true);
-	</script>

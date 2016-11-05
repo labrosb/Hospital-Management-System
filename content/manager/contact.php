@@ -1,30 +1,37 @@
 <?php
-	session_start();
-	
-	include("../../server_processes/config.inc.php");
-	
-	$con = mysql_connect(dbServer,dbUser,dbPass) or die('Connection-ERROR');
+	if(!isset($_SESSION)){ session_start();} 
 
-	mysql_select_db(dbDatabase) or die('Connection-ERROR'.$dbDatabase.'.');
-
-	mysql_query('SET character_set_results=utf8');
-	mysql_query('SET names=utf8');  
-	mysql_query('SET character_set_client=utf8');
-	mysql_query('SET character_set_connection=utf8');   
-	mysql_query('SET character_set_results=utf8');   
-	mysql_query('SET collation_connection=utf8_general_ci'); 	
+	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/config.inc.php");	 // Connection to database	
+	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/security_functions.php");	// Security functions	
+		
+	check_if_manager();			// Checking session to prevent unauthorized access
+	
+	if (!check_and_update_session()){									// If session hasn't expired update session 									
+		header("Location: http://". $_SERVER['HTTP_HOST']."/hospital"); // else redirects to the homepage
+		exit;
+	}				
+			
+	$con = DB_Connect();		// Connecting to database	
 	
 	$ID = $_SESSION['id'];
+	$Name = $_SESSION['name'];
+	$Surname = $_SESSION['surname'];
 	
-	$sql = mysql_query("SELECT Email FROM managers WHERE Id=$ID LIMIT 1");
-
-	while($row = mysql_fetch_assoc($sql)) {
-		$data['Email'] = $row['Email']; 
-	}	
+	try {	
+		$stmt = $con->prepare('SELECT Email FROM managers WHERE Id = :id LIMIT 1');		
+		$stmt->execute(array('id' => $ID));	
+		
+		while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+		{	
+			$data['Email'] = $row['Email']; 		// Retrieves user's e-mail
+		}
+		$con=null;
+	}
+	catch (PDOException $e) { die("cannot connect to reasons"); }
 ?>	
 	
     <script type="text/javascript" src="client_processes/jquery/jquery-ui-1.9.1.custom.min.js"></script>	
-	<script type="text/javascript" src="client_processes/send_mail.js"></script>	
+	<script type="text/javascript" src="client_processes/general_functions/send_mail.js"></script>	
 		<div id="intro">					
 			<h1 data-inter="contactUsTitle"> </h1>					
            <div class="content_page">          
@@ -61,7 +68,7 @@
 		
 	<script type="text/javascript">
 		changeLang(defaultLang);	
-		$('#name').val('<?php echo $_SESSION['name'].' '.$_SESSION['surname'] ?>');
+		$('#name').val('<?php echo $Name.' '.$Surname ?>');
 		$('#email').val('<?php echo $data["Email"] ?>');
 		$('#name').attr('disabled', true);
 		$('#email').attr('disabled', true);	

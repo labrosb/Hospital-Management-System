@@ -1,4 +1,13 @@
+<?php
+	if(!isset($_SESSION)){ session_start();}
 	
+	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/security_functions.php");	// Security functions	
+		
+	check_if_patient();					// Checking session to prevent unauthorized access
+	
+	if (!check_session_timer()){exit;}	 // Checking session (if exists) to see if is expired	
+?>	
+
 		<div id ="banner_index">	
 			<div class="slider-wrapper theme-default">
 				<div id="slider" class="nivoSlider patient_slider">

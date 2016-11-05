@@ -1,11 +1,25 @@
 <?php
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
-	echo'<link rel="stylesheet" href="styles/msgBoxLight.css" type="text/css" />
+	if(!isset($_SESSION)){ session_start();} 
+	
+	include_once($_SERVER['DOCUMENT_ROOT']."/hospital/server_processes/system_access_functions/security_functions.php");	// Security functions	
+		
+	check_if_manager();						// Checking session to prevent unauthorized access
+
+	if (!check_session_timer()){exit;}	 	// Checking session to see if is expired and update	
+?>	
+
+	<link rel="stylesheet" type="text/css" media="screen"="screen" href="styles/msgBoxLight.css">
+	<script type="text/javascript" src="client_processes/jquery/jquery.bpopup-0.7.0.min.js"></script>
+	<script type="text/javascript" src="client_processes/general_functions/general_functions.js"></script>
+	<script type="text/javascript" src="client_processes/general_functions/session_checker.js"></script>
+	<script type="text/javascript" src="client_processes/manager_functions/program.js"></script>
+	
 		<ul id="nav_manager">
-			<li class="name"> <a href="#"> Admin Staff: ' .$_SESSION['name'].' '. $_SESSION['surname'].'</a>
+			<li class="name"> 
+				<a href="#"> 
+					<span data-inter="managerLabel" id ="entityLabel"> Admin Staff </span>: 
+					<?php echo ($_SESSION['name'].' '. $_SESSION['surname']);?> 
+				</a>
 				<ul class="name_sub">	
 					<li class="logout"> <button class ="logout_button" type="button">Log out</button></li>
 				</ul>
@@ -26,20 +40,10 @@
 			<li class="contact"><a data-inter="contactUs" href="contact">Contact Us</a></li>
 		</ul>
 		
-	<div id ="external_field_units">
-		<div id="units_popup"> 
-			<div class="msgBoxTitle" data-inter="unitsBoxTitle"> 
-				CHOOSE UNIT
-			</div>
-			<div id="units_list">
-				<select class="units_select"></select>
-			</div>
-			<div class="msgBoxButtons" style="text-align: center; margin-top: 5px;">
-				<input id="okButton" class="msgButton" type="button" value="OK" name="OK">
-				<input id="cancelButton" class="msgButton" type="button" value="Cancel" name="Cancel">
-			</div>			
-		</div>
-	</div>
+		
+		
+	<!-- ///// External fields ///// -->
+	
 	<div id ="external_field_staff">
 		<div id="staff_popup">
 			<div class="button bClose"><span>X</span></div> 
@@ -65,7 +69,7 @@
 						</tr>
 						<tr> 
 							<td class="staff_details" data-inter="cardSpecialty">Specialty: </td>
-							<td class="specialty"></td> 										
+							<td class="specialty" data-inter=""></td> 										
 						</tr> 										
 						<tr> 
 							<td class="staff_details" data-inter="cardSex">Sex: </td> 
@@ -96,19 +100,19 @@
 							 <td class="Mobile_phone"></td>
 						<tr> 
 							<td class="staff_details" data-inter="cardEmail"> E-mail: </td> 
-							 <td class="Email"></td>									
+							<td class="Email"></td>									
 						</tr>										
 						<tr> 
 							<td class="staff_details" data-inter="cardAddress"> Address: </td> 
-							 <td class="Address"></td>									
+							<td class="Address"></td>									
 						</tr>
 						<tr> 
 							<td class="staff_details" data-inter="cardCity"> City: </td> 
 							 <td class="City"></td>									
 						</tr>	
 						<tr> 
-												<td class="staff_details" data-inter="cardPostCode"> Post code: </td> 
-							 <td class="Postal_code"></td>									
+							<td class="staff_details" data-inter="cardPostCode"> Post code: </td> 
+							<td class="Postal_code"></td>									
 						</tr>
 						<tr> 
 							<td class="staff_details" data-inter="cardHireDate"> Hire date: </td> 
@@ -127,19 +131,18 @@
 				</table> 
 			</div>
 		</div>
-	</div>	';
-?>
-	<script>
-		$.ajax({
-			type: "POST",
-			url: "server_processes/load_units.php",
-			dataType: "json",	  					
-			success: function(response){
-					for(var i = 0; i < response.length; i++){
-						$('.units_select').append('<option value="'+response[i].Id+'">'+response[i].Name+'</option>');	
-					}
-			}					
-		});		
-	</script>
-	<script type="text/javascript" src="client_processes/jquery/jquery.bpopup-0.7.0.min.js"></script>
-	<script type="text/javascript" src="client_processes/program.js"></script>
+	</div>	
+
+	<div id ="external_field_units">
+		<div id="units_popup"> 
+			<div class="msgBoxTitle" data-inter="unitsBoxTitle"> 
+				CHOOSE UNIT
+			</div>
+			<div id="units_list">
+			</div>
+			<div class="msgBoxButtons" style="text-align: center; margin-top: 5px;">
+				<input id="okButton" class="msgButton2" type="button" value="OK" name="OK">
+				<input id="cancelButton" class="msgButton2" type="button" value="Cancel" name="Cancel">
+			</div>			
+		</div>
+	</div>
