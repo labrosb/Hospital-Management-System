@@ -1,0 +1,44 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	overflow: hidden;
+}
+.dhx_cal_event .dhx_header, 
+.dhx_cal_event .dhx_title, 
+.dhx_cal_event .dhx_body, 
+.dhx_cal_event .dhx_footer{
+	background-color: #c6e4ee;
+	color: #566c71;			
+}
+#my_form {
+	position: absolute;
+	top: 100px;
+	left: 200px;
+	z-index: 10001;
+	display: none;
+	visibility: visible; 
+	background-color: white;
+	border: 2px outset gray;
+	padding: 20px;
+	font-family: Tahoma;
+	font-size: 10pt;
+	height: auto;
+}
+
+#my_form label {
+	width: 200px;
+}
+.icon_edit,.icon_delete{display: none;}
+			
+#external_field_msgs{		
+	position: absolute;
+	left:625px;
+	top:200px;
+	z-index: 99999;
+	display:none
+}
+
+.dhx_cal_event div{
+	background-color: #c6e4ee;
+}

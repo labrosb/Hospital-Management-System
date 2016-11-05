@@ -1,0 +1,522 @@
+#nav, #nav_patient, #nav_staff, #nav_manager {
+	margin: 0;
+	line-height: 100%;
+}
+
+#nav li , #nav_patient li, #nav_staff li, #nav_manager li{
+	margin: 1 0 0 5px;
+	padding: 0;
+	float: left;
+	list-style: none;
+	position: relative;
+}
+
+/* main level link */
+#nav li a, #nav_patient li a, #nav_staff li a, #nav_manager li a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: none;
+	color:#DCEDF1;	
+	text-decoration: none;
+	position: relative;
+	display: block;
+	margin: 0 6px 0 0;
+	z-index:1;      
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+ #nav li .hover, #nav_patient li .hover, #nav_staff li .hover, #nav_manager li .hover {
+        /* mouseover image  */
+        background:url(images/over.png) no-repeat center center;       
+ 
+        /* must be postion absolute     */
+        position:absolute;  
+         
+        /*  width, height, left and top to fill the whole LI item   */
+        width:100%;    
+        height:100%;
+        left:0; 
+        top:0;  
+         
+        /* display under the Anchor tag */
+        z-index:0;      
+         
+        /* hide it by default   */
+        display:none;   
+    }    
+
+/* sub levels link hover */
+#nav ul li:hover a, #nav li:hover li a, 
+#nav_patient  ul li:hover a, #nav_patient li:hover li a, 
+#nav_staff ul li:hover a, #nav_staff li:hover li a, 
+#nav_manager ul li:hover a, #nav_manager li:hover li a{
+	background: none;
+	border: none;
+	color: #666;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+#nav ul a:hover, #nav_patient ul a:hover, #nav_staff ul a:hover, #nav_manager ul a:hover {
+		background: url(images/over.png) 0 0 repeat !important; /* for non-css3 browsers */
+
+}
+/* level 2 list */
+#nav ul, #nav_patient ul, #nav_staff ul, #nav_manager ul{
+	background: rgba(172, 216, 226, 0.6666);  /* for non-css3 browsers */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cfcfcf'); /* for IE */
+	display: none;
+	margin: 0;
+	width: 168px;
+	position: absolute;
+	left: 0;
+	padding: 10px 0 10px 0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+#nav li a.active, #nav_patient li a.active, #nav_staff li a.active, #nav_manager li a.active  {
+	background: url(images/active.png) 0 0 repeat;
+}
+
+/* dropdown */
+a #nav ul:hover > ul, a #nav_patient ul:hover> ul, a #nav_staff ul:hover > ul, a #nav_manager ul:hover > ul {
+	display: block;
+}
+#nav ul li, #nav_patient ul li , #nav_staff ul li, #nav_manager ul li{
+	float: left;
+	padding: 0;
+}
+#nav ul a,  #nav_patient ul a, #nav_staff ul a, #nav_manager ul a {
+	font-weight: normal;
+	padding-bottom: 16px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, .9);
+}
+
+/* clearfix */
+#nav:after, #nav_patient :after, #nav_staff:after, #nav_manager:after {
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+#nav, #nav_patient, #nav_staff, #nav_manager  {
+	display: inline-block;
+}
+html[xmlns] #nav {
+	display: block;
+}
+* html #nav {
+	height: 1%;
+}
+
+.index a, .about a , .exams a , .myHistory a, .contact a , .news a, .myProgram a, .staff a{ 
+	padding: 8px 15px;
+	
+}
+
+.login-li a , .register-li a, .sls a  {
+	padding: 8px 3px;
+	font-style:italic;
+}
+
+.name a {
+	padding: 8px 15px;
+	font-style:italic;
+}
+
+.login-li {margin-left:18px;}
+.index { margin-left:165px;}
+.news { margin-left:100px;}
+
+#nav_patient ul.name_sub, #nav_staff ul.name_sub, #nav_manager ul.name_sub {
+	left:70px;
+	width:220px;
+}
+
+#nav_patient ul.name_sub li, #nav_staff ul.name_sub, #nav_manager ul.name_sub {
+	margin-left:4px;
+}
+
+#nav_patient ul.name_sub a, #nav_staff ul.name_sub a, #nav_manager ul.name_sub a{
+	font-style:normal;
+	padding:16px 0 16px 12px;
+	width:100%;
+	text-align:center;
+}
+
+li.result_insertion, li.on_duty_shifts, li.insert_staff, li.search_staff{line-height:25px}
+
+
+.logout_button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: none;
+	text-align:center;
+	text-decoration:none;
+	background: rgba(91, 122, 129, 0.6666);
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	box-shadow:rgba(0, 0, 0, 0.298039) 0 2px 3px;
+	color:#FFFFFF;
+	cursor:pointer;
+	display:inline-block;
+	padding:10px 20px;
+	margin-left:45px;
+	
+}
+
+.logout_button:hover {
+	background: rgba(64, 86, 91, 0.6666);
+}
+
+.label{cursor:pointer;}
+
+
+
+///////////////* popup menus ///////////////////*/
+#external_field_doc, #external_field_exams, #results_input, #external_field_staff{
+	display:none;
+}
+
+#results_input{
+	display:none;
+}
+
+#doc_program_popup{
+	display:none;
+}
+
+#external_field_units{
+	display:none;
+}
+
+#external_field_staff{
+	display:none;
+}
+
+#exams_popup, #doctors_popup, #input_results_popup, #units_popup, #staff_popup, #extra_popup{ 
+	background: url(images/bg_repeat_pattern.png) repeat;
+	border:5px #f7f7f7 solid;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	box-shadow:#999999 0 0 25px 5px;
+	color: #566c71;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	font-size:16px;	
+	min-width:50px;
+	min-height:50px;
+	z-index: 9999;
+}
+
+#loading_img{
+	height: 50px; 
+	width: 50px;
+}
+
+#loading_img2{
+	height: 30px; 
+	width: 30px;	
+}
+#extra_popup{
+	background-image: url("images/msgBox/msgBoxBackGround.png");
+	border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 11px #000000;
+    color: #00335E;
+	font-size:16px;
+    font-family: Verdana;
+    min-height: 160px;
+    padding: 4px 10px;
+    position: fixed;
+    width: 430px;
+}
+
+#units_popup{
+	background-image: url("images/msgBox/msgBoxBackGround.png");
+	border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 11px #000000;
+    color: #00335E;
+    font-family: Verdana;
+    min-height: 160px;
+    padding: 4px 10px;
+    position: fixed;
+    width: 430px;
+}
+
+#units_list{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-left: 120px;
+}
+
+.units_select{
+	margin-bottom:50px;
+	margin-left: 120px;
+	width: 200px;
+}
+
+#null_available{
+	position: relative;
+	top:-10px;
+    right: 17px;
+    max-width: 260px;
+}
+
+#input_results_popup{ 
+	background: none repeat scroll 0 0 #F7F7F7;
+	padding:20px;
+}
+
+table#profile_inner tr td{
+	border-bottom: 1px solid #999999;
+}
+
+#input_msg{ 
+	font-size:16px;
+	text-align:center;
+	margin-bottom:5px;
+}
+#exams_popup p, #doctors_popup p, #exams_dimensions p, #doctors_dimensions p{
+	font-size:18px;
+	color: #566c71;
+	font-style:italic;
+	text-decoration:underline;
+	padding-left:35px;
+}
+
+#exams_dimensions, #doctors_dimensions{
+	font-size:18px;		
+	position:absolute;
+	visibility:hidden;
+	margin-top:2000px;
+}
+
+
+#all_lists table{ 
+	float:left;
+	padding-left:35px;
+	margin:0;
+	width:auto%;
+}
+
+
+#all_lists table td{ 
+	padding-top:6px;
+	padding-bottom:12px;
+	cursor:pointer;
+}
+
+#all_lists table td:hover {
+	font-style:italic;
+ }
+  
+#results_content{
+	float:right;
+}
+
+ #results_content table tr td{
+	vertical-align:top;
+ }
+ /*
+#lists{border-left:1px #566c71 solid;}
+ */
+#profile{
+	font-style:italic;
+} 
+ 
+#profile_content{height:100%;} 
+ 
+.prof_details{
+	padding-right:30px;
+	padding-left:15px;
+}
+ 
+.staff_details{
+	padding-right:30px;
+	padding-left:15px;
+} 
+ 
+#profile_photo_content{width:120px;}
+
+#photo_loading{
+	position:absolute;
+	display:none;
+}
+ 
+ #loading_prof_img{
+	margin-top:25px; 
+	margin-left:30px;
+}
+
+#back_to_list{
+	position:absolute;
+	top:16px;
+	cursor:pointer;
+}
+
+#doc_photo_content{
+	
+}
+
+#resume_content{
+	position:absolute;
+	padding-left:20px;
+	padding-right:23px;
+	overflow:scroll;	
+	display:none;
+}
+
+#resume_content p {
+	margin-left: 20px;
+	width:200px;
+}
+
+.button.bClose {
+	border-bottom-left-radius:7px;
+	border-bottom-right-radius:7px;
+	border-top-left-radius:7px;
+	border-top-right-radius:7px;
+	box-shadow:none;
+	font-family:sans-serif;
+	font-size:131%;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	line-height:normal;
+	padding:0 6px 2px;
+	position:absolute;
+	right:-10px;
+	top:-10px;
+	z-index:9999;
+}
+
+.button {
+  background-color:#566c71;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  box-shadow:rgba(0, 0, 0, 0.298039) 0 2px 3px;
+  color:#FFFFFF;
+  cursor:pointer;
+  display:inline-block;
+  padding:10px 20px;
+  text-align:center;
+  text-decoration:none;
+  z-index:999;
+}
+
+.button:hover {background-color:#1E1E1E;}
+
+
+.resume_button{
+  background-color:#566c71;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  color:#FFFFFF;
+  cursor:pointer;
+  display:inline-block;
+  padding:5px 10px;
+  margin-top:15px;
+  text-decoration:none;  
+}
+  
+.resume_button:hover{background-color:#1E1E1E;}
+
+
+#exams_checkboxes{
+	display:none;
+	position:absolute;
+	opacity: 0.9;
+	filter: alpha(opacity=90);		
+	background: #ceebf1;;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	padding:10px;
+	z-index:999;
+}
+
+#exams_checkboxes .exams_checkbox{
+	width:20px;
+	margin:10px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+}
+
+
+#exams_checkboxes table{ 
+	list-style:none;
+	color:#566c71;
+	float:left;
+	padding-left:20px;
+	padding-left:20px;
+	margin:0;
+	width:auto%;
+}
+
+.choice_buttons {
+	position: absolute;
+	right: 120px;
+	width: 380px;
+}
+
+.dn{right:55px;}
+
+.choice_buttons2 .choice_buttons3 {
+	position: absolute;
+	right: 60px;
+}
+
+.choice_buttons tr td, .choice_buttons2 tr td, .choice_buttons3 tr td {
+	background-color: #888;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-style: italic;
+	padding: 10px;
+	width: 80px;
+	text-align: center;
+	cursor: pointer;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+
+.choice_buttons tr td:hover, .choice_buttons2 tr td:hover, .choice_buttons3 tr td:hover{background:#1E1E1E}
+
+	.send{
+		background: #888888;
+		color: #f7f7f7;
+		cursor: pointer;
+		width: 100px;
+		height: 40px;
+		position: relative;
+		left: 20px;
+		bottom:0;
+		-webkit-border-radius: 60px;
+		-moz-border-radius: 60px;	
+		border-radius: 60px;
+	}
+
+	.send:hover{background: #6b6868;}	
+.choice_buttons tr #space, .choice_buttons2 tr #space{
+	background:none;
+	width:10px;
+}
+
+#choice_buttons tr td:hover{background-color:#1E1E1E;}
+
