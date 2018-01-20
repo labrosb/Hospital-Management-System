@@ -22,6 +22,5 @@ The system consists of 4 different sections which are the guest, administrative 
 <h2> Security Considerations </h2>
 <p>	During the revision, security is added into the system securing it againsed sql injections and session hijacking. Sql injections protextion is acomplished using prepared dpo statements while session hijacking protextion by updating the session id after each action if previous id update time exceeds 5'. In addition, for each page loaded or action executed, the system checks if the user has the required access rights.</p>
 <br>
-<p>*To be implemented soon: XSS attacks protection</p>
 <p>Year of implementation : 2012 (Revised in 2016)</p>
 <p>Project : Individualy implemented</p>
