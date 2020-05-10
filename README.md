@@ -7,11 +7,12 @@ The system consists of 4 different sections which are the guest, administrative 
   <img src="https://www.labrosb.com/project-thumbs/hms-patient2.PNG" height="120px" />
   <img src="https://www.labrosb.com/project-thumbs/hms-patient3.PNG" height="120px" />
 </p>
-<span>
+<p>
   <img src="https://www.labrosb.com/project-thumbs/hms-doctor.PNG" height="120px" />
   <img src="https://www.labrosb.com/project-thumbs/hms-management.PNG" height="120px" />
   <img src="https://www.labrosb.com/project-thumbs/hms-management2.PNG" height="120px" />
-</span>
+</p>
+<br />
 <p> Watch it here: https://www.youtube.com/watch?v=IOWKLMbhSWk&list=PLNZ9chelbS2e-pVszen4oJP6xbCl_omOr&index=1</p>
 <h2> Guest section </h2>
 <p> Guest section includes general information about the hospital, a communication's form and a registration form for patients.</p>
