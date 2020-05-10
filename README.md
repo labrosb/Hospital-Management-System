@@ -1,4 +1,11 @@
 <h1> Hospital Management I.S</h1>
+<p>
+  <img src="https://www.labrosb.com/project-thumbs/hms-patient.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-patient2.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-doctor.PNG.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-management.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-management2.PNG" height="120px" />
+</p>
 <p>	The current project is my bachelor thesis and the largest project that I developed individually. 
 A full working Hospital Management IS implemented with HTML, CSS3, AJAX (PHP, JavaScript-JQuery), MySQL. 
 The system consists of 4 different sections which are the guest, administrative staff, doctor and patients section.</p>
