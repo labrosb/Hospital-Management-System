@@ -1,15 +1,19 @@
 <h1> Hospital Management I.S</h1>
-<p>
-  <img src="https://www.labrosb.com/project-thumbs/hms-patient.PNG" height="120px" />
-  <img src="https://www.labrosb.com/project-thumbs/hms-patient2.PNG" height="120px" />
-  <img src="https://www.labrosb.com/project-thumbs/hms-doctor.PNG" height="120px" />
-  <img src="https://www.labrosb.com/project-thumbs/hms-management.PNG" height="120px" />
-  <img src="https://www.labrosb.com/project-thumbs/hms-management2.PNG" height="120px" />
-</p>
 <p>	The current project is my bachelor thesis and the largest project that I developed individually. 
 A full working Hospital Management IS implemented with HTML, CSS3, AJAX (PHP, JavaScript-JQuery), MySQL. 
 The system consists of 4 different sections which are the guest, administrative staff, doctor and patients section.</p>
-
+<span>
+  <img src="https://www.labrosb.com/project-thumbs/hms-patient.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-patient2.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-patient3.PNG" height="120px" />
+</span>
+<span>
+  <img src="https://www.labrosb.com/project-thumbs/hms-doctor.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-management.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-management2.PNG" height="120px" />
+</span>
+<br />
+<p> Watch it here: https://www.youtube.com/watch?v=IOWKLMbhSWk&list=PLNZ9chelbS2e-pVszen4oJP6xbCl_omOr&index=1</p>
 <h2> Guest section </h2>
 <p> Guest section includes general information about the hospital, a communication's form and a registration form for patients.</p>
 
