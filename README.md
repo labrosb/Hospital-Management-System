@@ -2,7 +2,7 @@
 <p>
   <img src="https://www.labrosb.com/project-thumbs/hms-patient.PNG" height="120px" />
   <img src="https://www.labrosb.com/project-thumbs/hms-patient2.PNG" height="120px" />
-  <img src="https://www.labrosb.com/project-thumbs/hms-doctor.PNG.PNG" height="120px" />
+  <img src="https://www.labrosb.com/project-thumbs/hms-doctor.PNG" height="120px" />
   <img src="https://www.labrosb.com/project-thumbs/hms-management.PNG" height="120px" />
   <img src="https://www.labrosb.com/project-thumbs/hms-management2.PNG" height="120px" />
 </p>
